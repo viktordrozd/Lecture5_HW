@@ -61,14 +61,7 @@ namespace Lecture5_HW
             {
                 foreach (var course in Courses)
                 {
-                    if (course != null)
-                    {
-                        printableCourses = printableCourses + " " + course.CourseName.ToString();
-                    }
-                    else
-                    {
-                        continue;
-                    }
+                    printableCourses = printableCourses + " " + course.CourseName.ToString();
                 }
             }
             return printableCourses;
