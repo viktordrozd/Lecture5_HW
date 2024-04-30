@@ -11,7 +11,7 @@ namespace Lecture5_HW
         public string? CourseName { get; set; }
         public string? TeacherName { get; set; }
         public int DurationDays { get; set; }
-        public int NumberOfStudents { get; set; }
+        public List<Student> Students { get; set; }
 
 
         public Course() : this(string.Empty)
@@ -26,21 +26,26 @@ namespace Lecture5_HW
         { 
         }
 
-        public Course(string courseName, string teacherName, int durationDays) : this (courseName, teacherName, durationDays, 0)
+        public Course(string courseName, string teacherName, int durationDays) : this (courseName, teacherName, durationDays, new List<Student>())
         {
         }
         
-        public Course(string courseName, string teacherName, int durationDays, int numberOfStudents)
+        public Course(string courseName, string teacherName, int durationDays, List<Student> students)
         {
             this.CourseName = courseName;
             this.TeacherName = teacherName;
             this.DurationDays = durationDays;
-            this.NumberOfStudents = numberOfStudents;
+            this.Students = students;
         }
 
         public string Print()
         {
-            return $"Course: {CourseName}\nTeacher: {TeacherName}\nDuration: {DurationDays}\nNumber of Students: {NumberOfStudents}";
+            return $"Course: {CourseName}\nTeacher: {TeacherName}\nDuration: {DurationDays}\nNumber of Students: {GetStudentCount()}";
+        }
+
+        private int GetStudentCount()
+        {
+            return Students.Count;
         }
     }
 }
